@@ -2,7 +2,7 @@
   <h2>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   </h2>
-  <time>{{ .Date.Format "2. January, 2006"}}</time>
+  <time>{{ .Date.Format "2" }} {{ (index .Site.Data.months.ka .Date.Month) }}, {{ .Date.Format "2006" }}</time>
   <article>
     <p>{{ .Summary }}</p>
   </article>

@@ -1,15 +1,18 @@
-{{ partial "head.html"  }}
+{{ partial "head.html" . }}
 {{ partial "header.html" . }}
 {{ $baseurl := .Site.BaseURL }}
-<div id="post">
-<section>
-  <h2>{{ .Title }}</h2>
-  <time>{{ .Date.Format "2. January, 2006"}}</time>
-</section>
-<section>
-  <article>
-    {{ .Content }}
-  </article>
-</section>
+<div id="post" class="main">
+    <section>
+      <h2>{{ .Title }}</h2>
+      <time>{{ .Date.Format "2" }} {{ (index .Site.Data.months.ka .Date.Month) }}, {{ .Date.Format "2006" }}</time>
+    </section>
+    <section>
+      {{ partial "fbshare.html" . }}
+      <article>
+        {{ .Content }}
+      </article>
+    </section>
+    {{ partial "fbcomments.html" . }}
+    <!--{{ partial "disqusscomments.html" . }}-->
 </div>
 {{ partial "footer.html" . }}

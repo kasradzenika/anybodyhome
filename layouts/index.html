@@ -4,13 +4,17 @@
 
 {{ partial "header.html" . }}
 
-<section>
-  {{ range (.Paginator 5).Pages }} 
-    {{ .Render "summary" }}
-  {{ end }}
-</section>
+    <div class="main_wrapper">
+        <div class="main">
+            <section>
+              {{ range (.Paginator 5).Pages }} 
+                {{ .Render "summary" }}
+              {{ end }}
+            </section>
 
-{{ partial "paginator.html" . }}
+            {{ partial "paginator.html" . }}
+        </div>
+    </div>
 
 {{ partial "footer.html" . }}
 
